@@ -66,6 +66,7 @@ makeValues = (varNames, defaults, targetDir, templateName) ->
     values[varName] = if defaults[varName] then defaults[varName] else null 
   values["target-dir"] = targetDir
   values["template-name"] = templateName
+  values["current-year"] = new Date().getFullYear()
   values
 
 sortValues = (values) ->
