@@ -1,0 +1,7 @@
+excludeDirectories = "{node_modules,lib}"
+excludeInFolderSearch = excludeDirectories
+
+includeFiles = "{.gitignore,.npmignore}"
+
+[ attr.untitled ]
+fileType = 'source.coffee'
