@@ -1,5 +1,5 @@
-excludeDirectories = "{node_modules,lib}"
-excludeInFolderSearch = excludeDirectories
+excludeDirectories = "{.git,node_modules}"
+excludeInFolderSearch = "{excludeDirectories,lib}"
 
 includeFiles = "{.gitignore,.npmignore}"
 
