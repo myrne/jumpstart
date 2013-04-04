@@ -7,7 +7,7 @@
   "homepage": "https://github.com/stellarpad/jumpstart",
   "repository": {
     "type": "git",
-    "url": "git://github.com/stellarpad/jumpstart.git"
+    "url": "git://github.com:stellarpad/jumpstart.git"
   },
   "directories": {
     "lib": "./lib"
@@ -24,11 +24,11 @@
   "devDependencies": {
     "coffee-script": "1.6.x"
   },
-  "engines": {
-    "node": "0.8.x",
-    "npm": "1.1.x"
-  },
   "optionalDependencies": {},
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.2.x"
+  },
   "bin": {
     "jumpstart": "./bin/jumpstart"
   },
