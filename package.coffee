@@ -21,6 +21,7 @@ dependencies:
   ncp: "0.4.x"
   "recursive-readdir": "0.0.1",
   "easy-table": "0.2.x"
+  "fs.extra": "1.2.x"
 
 devDependencies:
   "coffee-script": "1.6.x"

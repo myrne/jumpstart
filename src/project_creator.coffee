@@ -3,6 +3,7 @@ async = require "async"
 readdir = require "recursive-readdir"
 ncp = require "ncp"
 easytable = require "easy-table"
+fsextra = require "fs.extra"
 
 module.exports = class ProjectCreator
   constructor: (@config = {}, @resolveValues) ->
@@ -31,7 +32,9 @@ module.exports = class ProjectCreator
                 return readdir targetDir, (err, targetPaths) =>
                   return next err if err
                   @log "Applying values to template files."
-                  return applyValues targetPaths, values, next
+                  return applyValues targetPaths, values, (err) ->
+                    return next err if err
+                    return renameFiles targetDir, next
   
   findTemplateDir: (templateName, next) ->
     @log "Searching for template #{templateName}."
@@ -68,6 +71,11 @@ makeValues = (varNames, defaults, targetDir, templateName) ->
   values["template-name"] = templateName
   values["current-year"] = new Date().getFullYear()
   values
+
+renameFiles = (targetDir, next) ->
+  fs.exists "#{targetDir}/package.jumpstart.json", (exists) ->
+    return next null unless exists
+    return fsextra.move "#{targetDir}/package.jumpstart.json", "#{targetDir}/package.json", next
 
 sortValues = (values) ->
   names = (name for name, value of values).sort()
