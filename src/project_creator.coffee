@@ -97,7 +97,7 @@ collectPlacholderNames = (paths, next) ->
   collectVars = (path, next) ->
     fs.readFile path, (err, contents) ->
       return next err if err
-      if matches = contents.toString().match  /---([A-z]+(-[A-z]+)*?)---/g
+      if matches = contents.toString().match  /---([a-z]+(-[a-z]+)*)---/g
         for match in matches
           varName = match.substring 3,match.length-3
           varNames.push varName if varNames.indexOf varName is -1
