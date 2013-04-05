@@ -23,7 +23,7 @@ jumpstart [dirname] [template-name]
 Jumpstart will search for a jumpstart template module within
 
 1. the current working directory
-2. the directory in which the jumpstart module is installed. This allows for distributing template modules via npm, which after installation become globally available.
+2. the directory in which the jumpstart module is installed. This allows for distributing template modules via npm.
 
 Jumpstart will read all files inside the jumpstart template and look for placeholders. Jumpstart will then ask for values of any placeholders it doesn't know a value for (either built-in or provided through a `.jumpstart.json` config file).
 
