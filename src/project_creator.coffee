@@ -6,7 +6,7 @@ easytable = require "easy-table"
 
 module.exports = class ProjectCreator
   constructor: (@config = {}, @resolveValues) ->
-    @config.defaults = {} unless @config.defaults
+    @config.globals = {} unless @config.globals
   
   createProject: (targetDir, templateName, next) ->
     @findTemplateDir templateName, (err, templateDir) =>
@@ -19,7 +19,7 @@ module.exports = class ProjectCreator
           # @log "Collecting placeholder names in #{templateDir}."
           return collectPlacholderNames paths, (err, varNames) =>
             return next err if err
-            values = makeValues varNames, @config.defaults, targetDir, templateName
+            values = makeValues varNames, @config.globals, targetDir, templateName
             missingVarNames = (name for name, value of values when value is null)
             @resolveValues missingVarNames, (err, resolvedValues) =>
               return next err if err
@@ -62,10 +62,10 @@ module.exports = class ProjectCreator
     @log "================="
     @log easytable.printObj sortValues values
 
-makeValues = (varNames, defaults, targetDir, templateName) ->
+makeValues = (varNames, globals, targetDir, templateName) ->
   values = {}
   for varName in varNames
-    values[varName] = if defaults[varName] then defaults[varName] else null 
+    values[varName] = if globals[varName] then globals[varName] else null 
   values["target-dir"] = targetDir
   values["template-name"] = templateName
   values["current-year"] = new Date().getFullYear()
