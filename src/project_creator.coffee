@@ -3,7 +3,6 @@ async = require "async"
 readdir = require "recursive-readdir"
 ncp = require "ncp"
 easytable = require "easy-table"
-fsextra = require "fs.extra"
 
 module.exports = class ProjectCreator
   constructor: (@config = {}, @resolveValues) ->
@@ -73,9 +72,19 @@ makeValues = (varNames, defaults, targetDir, templateName) ->
   values
 
 renameFiles = (targetDir, next) ->
-  fs.exists "#{targetDir}/package.jumpstart.json", (exists) ->
-    return next null unless exists
-    return fsextra.move "#{targetDir}/package.jumpstart.json", "#{targetDir}/package.json", next
+  renames =
+    "package.jumpstart.json": "package.json" # so npm won't complain about invalid syntax because of placeholders
+    "gitignore.jumpstart": ".gitignore" # .gitignore is not included when packaged by npm
+    "npmignore.jumpstart": ".npmignore" # will be included, possibly overwrites the original .npmignore
+    "tm_properties.jumpstart": ".npmignore" # so the textmate properties won't apply to the template dir itself
+  renameFile = (relativePath, next) ->
+    currentPath = "#{targetDir}/#{relativePath}"
+    newPath = "#{targetDir}/#{renames[relativePath]}"
+    fs.exists currentPath, (exists) ->
+      return next null unless exists
+      console.log "Renaming #{currentPath} to #{newPath}"
+      return fs.rename currentPath, newPath, next
+  async.forEach Object.keys(renames), renameFile, next
 
 sortValues = (values) ->
   names = (name for name, value of values).sort()
