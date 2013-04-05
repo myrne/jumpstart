@@ -2,7 +2,19 @@
 
 Use Jumpstart to easily create new projects from templates.
 
+## Installation
+
+You probably want to install jumpstart globally, so you can run it from anywhere.
+To get a sense of what jumpstart can do, you should install a template module as well.
+
+```
+npm install jumpstart -g
+npm install jumpstart-black-coffee -g
+```
+
 ## Usage
+
+Typically, you run jumpstart from your 'Work' directory (i.e. the directory that holds your project directories).
 
 ```
 jumpstart [dirname] [template-name]
@@ -10,10 +22,10 @@ jumpstart [dirname] [template-name]
 
 Jumpstart will search for a jumpstart template module within
 
-1. the current work directory
+1. the current working directory
 2. the directory in which the jumpstart module is installed. This allows for distributing template modules via npm, which after installation become globally available.
 
-Jumpstart will read all files inside the jumpstart template and look for placeholders. Jumpstart will then ask for values of any placeholders it doesn't know a value for (either built-in or provided through a .jumpstart.json config file).
+Jumpstart will read all files inside the jumpstart template and look for placeholders. Jumpstart will then ask for values of any placeholders it doesn't know a value for (either built-in or provided through a `.jumpstart.json` config file).
 
 After getting values for all variables, Jumpstart creates the target directory, copies the contents of the template directory into the target directory and replaces the placeholders with their provided values. As a precaution, Jumpstart won't write to a directory that already exists.
 
@@ -52,17 +64,17 @@ A jumpstart template module is a directory which name starts with `jumpstart-` f
 
 The files inside the template directory serve as templates for the files in the target directory. The template files are copied verbatim to the target directory, with the following exceptions:
 
-### Placeholder replacement
+### 1. Placeholder replacement
 
 A placeholder string is a variable name with three dashes added on both sides. Examples of placeholders:
 
-* ---name---
-* ---author-email---
-* ---some-important-setting---
+* `---name---`
+* `---author-email---`
+* `---some-important-setting---`
 
 Placeholders can be placed anywhere, both inside and outside of what are considered strings in a particular language. This means the template files themselves may not be valid.
 
-### Special file names
+### 2. Special file names
 
 To allow easy distribution of templates through npm, and to prevent any conflicts in what you want the template to be compared with how you want to edit it, jumpstart templates use special names for the following files:
 
@@ -85,6 +97,14 @@ jumpstart:
 	git commit -m "---commit-message---"
 	git push -u origin master
 ```
+
+## Using a template module
+
+The easiest way to use your own template is to place it in your Work directory with the name `jumpstart-yourtemplate`. In your Work directory, you can then do `jumpstart yournewproject yourtemplate`.
+
+## Publishing a template module
+
+The structure of a template module allows it to be published verbatim with npm. The module name (i.e. in package.json) must start with `jumpstart-`.
 
 ## License
 Jumpstart is released under the [MIT License](http://opensource.org/licenses/MIT).  
