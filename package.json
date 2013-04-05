@@ -2,7 +2,7 @@
   "name": "jumpstart",
   "description": "Quickly build modules based on templates.",
   "keywords": [],
-  "version": "0.0.4",
+  "version": "0.0.5",
   "author": "Meryn Stol <merynstol@gmail.com>",
   "homepage": "https://github.com/stellarpad/jumpstart",
   "repository": {
