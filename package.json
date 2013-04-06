@@ -5,6 +5,7 @@
   "version": "0.0.6",
   "author": "Meryn Stol <merynstol@gmail.com>",
   "homepage": "https://github.com/meryn/jumpstart",
+  "bugs": "https://github.com/meryn/jumpstart/issues",
   "repository": {
     "type": "git",
     "url": "git://github.com:meryn/jumpstart.git"
