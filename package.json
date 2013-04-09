@@ -2,6 +2,7 @@
   "name": "jumpstart",
   "description": "Quickly build modules based on templates.",
   "keywords": [],
+  "preferGlobal": true,
   "version": "0.0.7",
   "author": "Meryn Stol <merynstol@gmail.com>",
   "homepage": "https://github.com/meryn/jumpstart",
