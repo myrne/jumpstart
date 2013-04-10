@@ -9,7 +9,7 @@
   "bugs": "https://github.com/meryn/jumpstart/issues",
   "repository": {
     "type": "git",
-    "url": "git://github.com:meryn/jumpstart.git"
+    "url": "git://github.com/meryn/jumpstart.git"
   },
   "directories": {
     "lib": "./lib"
