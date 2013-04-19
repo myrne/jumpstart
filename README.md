@@ -12,31 +12,14 @@ npm install jumpstart -g
 npm install jumpstart-black-coffee -g
 ```
 
-## Usage
-
-Typically, you run jumpstart from your 'Work' directory (i.e. the directory that holds your project directories).
-
-```
-jumpstart [dirname] [template-name]
-```
-
-Jumpstart will search for a jumpstart template module within
-
-1. the current working directory
-2. the directory in which the jumpstart module is installed. This allows for distributing template modules via npm.
-
-Jumpstart will read all files inside the jumpstart template and look for placeholders. Jumpstart will then ask for values of any placeholders it doesn't know a value for (either built-in or provided through a `.jumpstart.json` config file).
-
-After getting values for all variables, Jumpstart creates the target directory, copies the contents of the template directory into the target directory and replaces the placeholders with their provided values. As a precaution, Jumpstart won't write to a directory that already exists.
-
-At the moment the program's output is quite verbose, which helps with debugging, as well as understanding what's going on.
-
 ## Configuration
 
 Jumpstart searches for a `.jumpstart.json` file within
 
 1. the current work directory
 2. your home directory -- for global configuration
+
+WITHOUT A .jumpstart.json FILE JUMPSTART WILL NOT WORK.
 
 ###  Example of a .jumpstart.json file
 
@@ -57,6 +40,26 @@ Variables conform to the following pattern: `[a-z]+(-[a-z]+)*`, i.e. lowercase w
   }
 }
 ```
+
+## Usage
+
+Typically, you run jumpstart from your 'Work' directory (i.e. the directory that holds your project directories).
+
+```
+jumpstart [dirname] [template-name]
+```
+
+Jumpstart will search for a jumpstart template module within
+
+1. the current working directory
+2. the directory in which the jumpstart module is installed. This allows for distributing template modules via npm.
+
+Jumpstart will read all files inside the jumpstart template and look for placeholders. Jumpstart will then ask for values of any placeholders it doesn't know a value for (either built-in or provided through a `.jumpstart.json` config file).
+
+After getting values for all variables, Jumpstart creates the target directory, copies the contents of the template directory into the target directory and replaces the placeholders with their provided values. As a precaution, Jumpstart won't write to a directory that already exists.
+
+At the moment the program's output is quite verbose, which helps with debugging, as well as understanding what's going on.
+
 
 ## Creating  jumpstart template modules
 
