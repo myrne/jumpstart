@@ -1,4 +1,4 @@
-Memoblock = require "Memoblock"
+Memoblock = require "memoblock"
 {detectSeries,adapt} = require "faithful"
 fsExists = require "fs-exists"
 fsExists = adapt fsExists
