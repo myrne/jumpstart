@@ -6,4 +6,6 @@ watch:
 	coffee --watch --compile --output lib/ src/
 	
 test:
-	true
+	node_modules/.bin/mocha
+	
+.PHONY: test
