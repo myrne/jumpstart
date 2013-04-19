@@ -18,11 +18,6 @@ rename = adapt fs.rename
 readdir = adapt readdir
 
 module.exports = createProject = (targetDir, templateDir, config, resolveValues, log) ->
-  logValues = (values) ->
-    log ""
-    log "VALUES TO BE USED"
-    log "================="
-    log easytable.printObj sortValues values
   Memoblock.do [
     -> @targetExists = fsExists targetDir
     -> throw new Error "Target directory #{targetDir} already exist." if @targetExists
@@ -34,6 +29,7 @@ module.exports = createProject = (targetDir, templateDir, config, resolveValues,
     -> @missingVarNames = (name for name, value of @values when value is null)
     -> @resolvedValues = resolveValues @missingVarNames
     -> @values[name] = value for name, value of @resolvedValues
+    -> log printValues @values
     -> @copyingFiles = ncp templateDir, targetDir
     -> @targetPaths = readdir targetDir
     -> @replacements = ([new RegExp("---#{name}---","g"),value] for name, value of @values)
@@ -45,6 +41,15 @@ module.exports = createProject = (targetDir, templateDir, config, resolveValues,
     -> @renamePairs = (["#{targetDir}/#{path}","#{targetDir}/#{renames[path]}"] for path in @rpaths)
     -> @renamingFiles = applyEach @renamePairs, rename
   ]
+
+printValues = (values) ->
+  """
+  
+  
+  VALUES TO BE USED
+  =================
+  #{easytable.printObj sortValues values}
+  """
 
 mapRight = (pairs, iterator) ->
   [pair[0], iterator pair[1]] for pair in pairs
