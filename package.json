@@ -16,15 +16,19 @@
   },
   "main": "lib/jumpstart.js",
   "dependencies": {
-    "async": "0.2.x",
     "optimist": "0.3.x",
     "commander": "1.1.x",
     "ncp": "0.4.x",
     "recursive-readdir": "0.0.1",
-    "easy-table": "0.2.x"
+    "easy-table": "0.2.x",
+    "faithful": "~0.4.10",
+    "memoblock": "~0.3.1",
+    "fs-exists": "0.0.1",
+    "underscore": "~1.4.4"
   },
   "devDependencies": {
-    "coffee-script": "1.6.x"
+    "coffee-script": "1.6.x",
+    "mocha": "~1.9.0"
   },
   "optionalDependencies": {},
   "engines": {
