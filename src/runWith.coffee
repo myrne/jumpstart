@@ -1,18 +1,18 @@
 optimist = require 'optimist'
 commander = require "commander"
-faithful = require "faithful"
 Memoblock = require "Memoblock"
+{detectSeries,adapt} =  require "faithful"
 fsExists = require "fs-exists"
-fsExists = faithful.adapt fsExists
+fsExists = adapt fsExists
+
 
 createProject = require "./createProject"
 
-logg = undefined
 module.exports = runWith = ({cwd, env, containingDir, inputs, resolveValues, log}) ->
   templateName = inputs[1]
-  logg = log
+  templateDirs = ("#{path}/jumpstart-#{templateName}/template" for path in [cwd,containingDir])
   Memoblock.do([
-    -> @configFilePath = findConfigFilePath cwd, env.HOME
+    -> @configFilePath = detectSeries ("#{dir}/.jumpstart.json" for dir in [cwd,env.HOME]), fsExists
     -> log "Did not find config file in #{searchPaths.join ", "}." unless @configFilePath
     -> log "Using config file #{@configFilePath}." if @configFilePath
     -> throw new Error "Usage: jumpstart [project-name] [template-name]" if inputs.length isnt 2
@@ -22,25 +22,12 @@ module.exports = runWith = ({cwd, env, containingDir, inputs, resolveValues, log
     -> throw new Error "Supplied cwd #{cwd} does not exist." unless @cwdExists
     -> throw new Error "Supplied containing dir #{containingDir} does not exist." unless @cdExists
     -> @config = if @configFilePath then require @configFilePath else {}
-    -> @templateDir = findTemplateDir cwd, containingDir, templateName
+    -> @templateDir = detectSeries templateDirs, fsExists
+    -> throw new Error "Cannot find template in #{templateDirs.join ", or "}." unless @templateDir
+    -> log "Using template #{@templateDir}."
     -> @creatingProject = createProject @targetDir, @templateDir, @config, resolveValues, log
     -> log "Created #{@targetDir}."
   ])
-  
-findTemplateDir = (cwd, containingDir, templateName) ->
-  logg "Searching for template #{templateName}."
-  searchPaths = [cwd,containingDir]
-  dirs = ("#{searchPath}/jumpstart-#{templateName}/template" for searchPath in searchPaths)
-  tryDir = (path) =>
-    logg "Trying #{path}"
-    fsExists path
-  faithful.detectSeries(dirs, tryDir).then (path) =>
-    throw new Error "Cannot find template #{templateName}." unless path
-    logg "Using template #{path}."
-    path
-
-findConfigFilePath = (cwd, home) ->
-  faithful.detectSeries(("#{dir}/.jumpstart.json" for dir in [cwd,home]), fsExists)
 
 # setDefault = (name, value) ->
 #   getConfig(config).then (config) ->
