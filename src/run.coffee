@@ -6,7 +6,7 @@ module.exports = run = ->
       console.log "Jumpstart finished successfully."
       process.exit 0
     .then null, (error) ->
-      console.error error
+      console.error error.message
       process.exit 1
 
 # setDefault = (name, value) ->
