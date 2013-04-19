@@ -8,9 +8,10 @@ createProject = require "./createProject"
 module.exports = runWith = ({cwd, env, containingDir, inputs, resolveValues, log}) ->
   templateName = inputs[1]
   templateDirs = ("#{path}/jumpstart-#{templateName}/template" for path in [cwd,containingDir])
+  configDirs = ("#{dir}/.jumpstart.json" for dir in [cwd,env.HOME])
   Memoblock.do([
-    -> @configFilePath = detectSeries ("#{dir}/.jumpstart.json" for dir in [cwd,env.HOME]), fsExists
-    -> log "Did not find config file in #{searchPaths.join ", "}." unless @configFilePath
+    -> @configFilePath = detectSeries configDirs, fsExists
+    -> log "No config file in #{configDirs.join ", or "}. Please read README.md." unless @configFilePath
     -> log "Using config file #{@configFilePath}." if @configFilePath
     -> throw new Error "Usage: jumpstart [project-name] [template-name]" if inputs.length isnt 2
     -> @targetDir = "#{cwd}/#{inputs[0]}" 
