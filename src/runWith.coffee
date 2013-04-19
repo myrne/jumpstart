@@ -1,10 +1,7 @@
-optimist = require 'optimist'
-commander = require "commander"
 Memoblock = require "Memoblock"
-{detectSeries,adapt} =  require "faithful"
+{detectSeries,adapt} = require "faithful"
 fsExists = require "fs-exists"
 fsExists = adapt fsExists
-
 
 createProject = require "./createProject"
 
