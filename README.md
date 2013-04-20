@@ -19,11 +19,15 @@ Jumpstart searches for a `.jumpstart.json` file within
 1. the current work directory
 2. your home directory -- for global configuration
 
-WITHOUT A .jumpstart.json FILE JUMPSTART WILL NOT WORK.
+Currently Jumpstart solely looks for a `globals` property inside the JSON data. If you specificy values for placeholders here, Jumpstart will use them to fill out the template, without asking you for it.
+
+Placeholder names conform to the following pattern: `[a-z]+(-[a-z]+)*`, i.e. lowercase words separated with a dash (`-`).
+
+Jumpstart will work without a configuration file, but it will be much less convenient to use.
 
 ###  Example of a .jumpstart.json file
 
-Variables conform to the following pattern: `[a-z]+(-[a-z]+)*`, i.e. lowercase words separated with a dash (`-`).
+Below is the `.jumpstart.json` file that I currently use for [my open source projects](https://github.com/meryn/?tab=repositories). It defines values for most of the placeholders inside my [Jumpstart Black Coffee](https://github.com/meryn/jumpstart-black-coffee) template.
 
 ```javascript
 {
@@ -40,6 +44,10 @@ Variables conform to the following pattern: `[a-z]+(-[a-z]+)*`, i.e. lowercase w
   }
 }
 ```
+
+#### A note about `module-is-private`
+
+This property is set to the string `"false"`. This is because Jumpstart does not know about booleans. Because of how the [Jumpstart Black Coffee](https://github.com/meryn/jumpstart-black-coffee) is structured, setting this property to anything else than `"true"` or `"false"` would reduce in invalid JSON in the generated project.
 
 ## Usage
 
