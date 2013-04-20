@@ -2,6 +2,7 @@
   "name": "jumpstart",
   "description": "Quickly build modules based on templates.",
   "keywords": [],
+  "license": "MIT",
   "preferGlobal": true,
   "version": "0.1.1",
   "author": "Meryn Stol <merynstol@gmail.com>",
