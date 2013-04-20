@@ -3,7 +3,6 @@ runWith = require "./runWith"
 module.exports = run = ->
   runWith(require("./cliOptions"))
     .then ->
-      console.log "Jumpstart finished successfully."
       process.exit 0
     .then null, (error) ->
       console.error error.message

@@ -41,7 +41,7 @@ module.exports = runWith = ({cwd, env, containingDir, inputs, resolveValues, log
     -> throw new Error "Cannot find template in #{templateDirs.join ", or "}." unless @templateDir
     -> log "Using template #{@templateDir}."
     -> @creatingProject = createProject targetDir, @templateDir, @getValues
-    -> log "Created #{targetDir}."
+    -> log "Created #{@creatingProject.writingFiles.length} files in #{targetDir}."
   ])
 
 # setDefault = (name, value) ->
