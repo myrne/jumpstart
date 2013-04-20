@@ -19,7 +19,7 @@ module.exports = runWith = ({cwd, env, containingDir, inputs, resolveValues, log
     -> @cdExists = fsExists containingDir
     -> throw new Error "Supplied cwd #{cwd} does not exist." unless @cwdExists
     -> throw new Error "Supplied containing dir #{containingDir} does not exist." unless @cdExists
-    -> @config = if @configFilePath then require @configFilePath else {}
+    -> @config = if @configFilePath then require @configFilePath else globals:{}
     -> @templateDir = detectSeries templateDirs, fsExists
     -> throw new Error "Cannot find template in #{templateDirs.join ", or "}." unless @templateDir
     -> log "Using template #{@templateDir}."
