@@ -14,7 +14,7 @@
   "directories": {
     "lib": "./lib"
   },
-  "main": "lib/jumpstart.js",
+  "main": "lib/runWith.js",
   "dependencies": {
     "optimist": "0.4.x",
     "commander": "1.1.x",
