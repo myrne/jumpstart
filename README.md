@@ -47,7 +47,7 @@ Below is the `.jumpstart.json` file that I currently use for [my open source pro
 
 #### A note about `module-is-private`
 
-This property is set to the string `"false"`. This is because Jumpstart does not know about booleans. Because of how the [Jumpstart Black Coffee](https://github.com/meryn/jumpstart-black-coffee) is structured, setting this property to anything else than `"true"` or `"false"` would reduce in invalid JSON in the generated project.
+This property is set to the string `"false"`. This is because Jumpstart does not know about booleans. Because of how the [Jumpstart Black Coffee](https://github.com/meryn/jumpstart-black-coffee) template is structured, setting this property to anything else than `"true"` or `"false"` would reduce in invalid JSON in the generated project.
 
 ## Usage
 
