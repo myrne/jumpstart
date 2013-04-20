@@ -55,6 +55,7 @@ mapRight = (pairs, iterator) ->
   [pair[0], iterator pair[1]] for pair in pairs
 
 makeValues = (varNames, globals, targetDir) ->
+  globals = {} unless globals
   values = {}
   for varName in varNames
     values[varName] = if globals[varName] then globals[varName] else null 
