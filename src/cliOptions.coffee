@@ -1,8 +1,10 @@
 faithful = require "faithful"
 optimist = require 'optimist'
-commander = require "commander"
-faithful = require "faithful"
 path = require "path"
+prompt = require "prompt"
+prompt.message = ""
+prompt.delimiter = ": "
+promptGet = faithful.adapt prompt.get
 
 module.exports = 
   cwd: process.cwd()
@@ -10,13 +12,8 @@ module.exports =
   inputs: optimist.argv._
   containingDir: path.resolve(__dirname, "../../")
   log: console.log.bind console
-  resolveValues: (missingVarNames) ->
+  resolveValues: (varNames, globals) ->
     console.log ""
-    console.log "Please provide missing placeholder values."
-    console.log "=========================================="
-    setValue = (values, varName) ->
-      faithful.makePromise (resolve) ->
-        commander.prompt "#{varName}: ", (value) ->
-          values[varName] = value
-          resolve values
-    faithful.reduce missingVarNames, {}, setValue
+    console.log "Please enter the missing values for the placeholders."
+    console.log "====================================================="
+    promptGet varNames
