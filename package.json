@@ -1,11 +1,23 @@
 {
   "name": "jumpstart",
-  "description": "Quickly build modules based on templates.",
-  "keywords": [],
+  "description": "Creates projects from templates with placeholders.",
+  "author": "Meryn Stol <merynstol@gmail.com>",
   "license": "MIT",
+  "keywords": [ 
+    "templates",
+    "boilerplate",
+    "fast",
+    "easy",
+    "quickly",    
+    "placeholders",
+    "modules",
+    "projects",
+    "cli",
+    "console",
+    "command-line"
+  ],
   "preferGlobal": true,
   "version": "0.1.1",
-  "author": "Meryn Stol <merynstol@gmail.com>",
   "homepage": "https://github.com/meryn/jumpstart",
   "bugs": "https://github.com/meryn/jumpstart/issues",
   "repository": {
