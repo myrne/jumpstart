@@ -1,11 +1,11 @@
 # Jumpstart: Juice to get going [![Build Status](https://travis-ci.org/meryn/jumpstart.png?branch=master)](https://travis-ci.org/meryn/jumpstart) [![Dependency Status](https://david-dm.org/meryn/jumpstart.png)](https://david-dm.org/meryn/jumpstart)
 
-Use Jumpstart to easily create new projects from templates.
+Jumpstart creates new projects from templates with placeholders.
 
 ## Installation
 
 You probably want to install jumpstart globally, so you can run it from anywhere.
-To get a sense of what jumpstart can do, you should install a template module as well.
+To get a sense of what jumpstart can do, you should install a template module as well. Currently, [Jumpstart Black Coffee](https://github.com/meryn/jumpstart-black-coffee) is the only one publicly available, so that makes it easy to choose.
 
 ```
 npm install jumpstart -g
