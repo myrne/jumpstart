@@ -1,4 +1,4 @@
-# Jumpstart: Juice to get going [![Build Status](https://travis-ci.org/meryn/jumpstart.png?branch=master)](https://travis-ci.org/meryn/jumpstart)
+# Jumpstart: Juice to get going [![Build Status](https://travis-ci.org/meryn/jumpstart.png?branch=master)](https://travis-ci.org/meryn/jumpstart) [![Dependency Status](https://david-dm.org/meryn/jumpstart.png)](https://david-dm.org/meryn/jumpstart)
 
 Use Jumpstart to easily create new projects from templates.
 
