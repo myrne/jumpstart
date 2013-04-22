@@ -56,7 +56,7 @@ describe "createProject", ->
         b = fsExists path.resolve targetDir, "README.md"
         faithful.collect [a,b]
     it "finds all placeholders",  ->
-      result.then -> assert.deepEqual expectedVarNames, foundVarNames
+      result.then -> assert.deepEqual expectedVarNames.sort(), foundVarNames.sort()
     it "results in right output", ->
       diffDirs(expectedDir, targetDir).then null, (err) ->
         # console.log err
