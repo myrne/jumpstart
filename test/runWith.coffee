@@ -21,11 +21,5 @@ describe "runWith", ->
     throw new Error "Function should have failed."
   it "works when providing good options", (next) ->
     runWith(goodOptions)
-      .then (memo) ->
-        console.log "success"
-        console.log memo
-        next null
-      .then null, (err) ->
-        next err
   after (next) ->
     rimraf path.resolve(goodOptions.cwd, goodOptions.inputs[0]), next
