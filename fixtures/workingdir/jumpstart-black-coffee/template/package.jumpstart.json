@@ -1,0 +1,31 @@
+{
+  "name": "---module-name---",
+  "description": "---module-description---",
+  "keywords": [],
+  "version": "0.0.0",
+  "author": "---author-name--- <---author-email--->",
+  "license": "MIT",
+  "homepage": "https://github.com/---github-ownername---/---module-name---",
+  "bugs": "https://github.com/---github-ownername---/---module-name---/issues",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/---github-ownername---/---module-name---.git"
+  },
+  "private": ---module-is-private---,
+  "dependencies": {},
+  "devDependencies": {
+    "coffee-script": "~1.6.2",
+    "mocha": "~1.9.0"
+  },
+  "optionalDependencies": {},
+  "engines": {
+    "node": "---node-version---",
+    "npm": "---npm-version---"
+  },
+  "main": "lib/---module-name---.js",
+  "scripts": {
+    "prepublish": "npm test",
+    "pretest": "make build",
+    "test": "make test"
+  }
+}
