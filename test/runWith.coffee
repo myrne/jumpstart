@@ -1,5 +1,6 @@
 runWith = require "../lib/runWith"
 path = require "path"
+rimraf = require "rimraf"
 
 logged = []
 
@@ -26,3 +27,5 @@ describe "runWith", ->
         next null
       .then null, (err) ->
         next err
+  after (next) ->
+    rimraf path.resolve(goodOptions.cwd, goodOptions.inputs[0]), next

@@ -41,7 +41,8 @@
   },
   "devDependencies": {
     "coffee-script": "1.6.x",
-    "mocha": "~1.9.0"
+    "mocha": "~1.9.0",
+    "rimraf": "~2.1.4"
   },
   "optionalDependencies": {},
   "engines": {
