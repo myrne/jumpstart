@@ -32,11 +32,11 @@ module.exports = createProject = (targetDir, templateDir, getValues) ->
     -> @replacements = ([new RegExp("---#{n}---","g"),v] for n,v of @values)
     -> @newContents = @contents.map (contents) => @replacements.reduce replace, contents
     -> @targetDirs = _.unique @targetPaths.map getDirname
-    -> @makingPaths = each @targetDirs, mkdirp
-    -> @writingFiles = applyEach _.zip(@targetPaths,@newContents), writeFile
+    -> each @targetDirs, mkdirp
+    -> applyEach _.zip(@targetPaths,@newContents), writeFile
     -> @rPaths = filter Object.keys(renames), (path) -> fsExists "#{targetDir}/#{path}"
     -> @renamePairs = (["#{targetDir}/#{path}","#{targetDir}/#{renames[path]}"] for path in @rPaths)
-    -> @renamingFiles = applyEach @renamePairs, rename
+    -> applyEach @renamePairs, rename
   ]
 
 replace = (string, replacement) ->
