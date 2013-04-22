@@ -1,0 +1,14 @@
+{
+  "defaultTemplate": "black-coffee",
+  "globals": {
+    "author-name": "Meryn Stol",
+    "author-email": "merynstol@gmail.com",
+    "github-username": "meryn",
+    "github-ownername": "meryn",
+    "github-repos-path": "/user/repos",
+    "module-is-private": "false",
+    "node-version": "0.10.x",
+    "npm-version": "1.2.x",
+    "commit-message": "jumpstart commit."
+  }
+}
