@@ -19,7 +19,7 @@ describe "runWith", ->
     catch error
       return
     throw new Error "Function should have failed."
-  it "works when providing good options", (next) ->
+  it "works when providing good options", ->
     runWith(goodOptions)
   after (next) ->
     rimraf path.resolve(goodOptions.cwd, goodOptions.inputs[0]), next
