@@ -1,6 +1,6 @@
 fs = require "fs"
 fsExists = require "fs-exists"
-readdir = require "recursive-readdir"
+{getFiles} = require "explorer"
 Memoblock = require "memoblock"
 faithful = require "faithful"
 mkdirp = require "mkdirp"
@@ -15,14 +15,14 @@ readFile = adapt fs.readFile
 writeFile = adapt fs.writeFile
 fsExists = adapt fsExists
 rename = adapt fs.rename
-readdir = adapt readdir
+getFiles = adapt getFiles
 mkdirp = adapt mkdirp
 
 module.exports = createProject = (targetDir, templateDir, getValues) ->
   Memoblock.do [
     -> @targetExists = fsExists targetDir
     -> throw new Error "Target directory #{targetDir} already exist." if @targetExists
-    -> @paths = readdir templateDir
+    -> @paths = getFiles templateDir
     -> @buffers = map @paths, readFile
     -> @contents = @buffers.map (buffer) -> buffer.toString()
     -> @varNamesArrays = @buffers.map (buffer) -> findPlaceholderNames buffer
