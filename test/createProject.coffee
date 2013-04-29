@@ -6,7 +6,6 @@ path = require "path"
 fsExists = require "fs-exists"
 fsExists = faithful.adapt fsExists
 rimraf = require "rimraf"
-rimraf = faithful.adapt rimraf
 readFile = faithful.adapt require("fs").readFile
 exec = require "faithful-exec"
 
@@ -40,28 +39,29 @@ describe "createProject", ->
   describe "when target directory already exists", ->
     it "fails", ->
       createProject(existingDir, templateDir, getValues)
-        .then (->throw new Error "createProject should have failed."), (error) -> #expected
+        .then (->throw new Error "createProject should have failed."), (error) -> 
+          assert.equal error.toString(), "Error: Target directory #{existingDir} already exist."
   describe "when template directory does not exist", ->
     it "fails", ->
       createProject(targetDir, templateDir + "abc", getValues)
-        .then (->throw new Error "createProject should have failed."), (error) -> # expected
+        .then (->throw new Error "createProject should have failed."), (error) -> 
+          assert.equal error.toString(), "Error: ENOENT, readdir '#{templateDir}abc'"
     
   describe "when all is good", ->
-    before (next) ->
-      fs.rename expectedDir + "/package.jumpstart.json", expectedDir + "/package.json", next
-    result = createProject targetDir, templateDir, getValues
+    before ->
+      if fs.existsSync expectedDir + "/package.jumpstart.json"
+        fs.renameSync expectedDir + "/package.jumpstart.json", expectedDir + "/package.json"
+      createProject targetDir, templateDir, getValues
     it "copies files", ->
-      result.then ->
-        a = fsExists path.resolve targetDir, ".gitignore"
-        b = fsExists path.resolve targetDir, "README.md"
-        faithful.collect [a,b]
+      a = fsExists path.resolve targetDir, ".gitignore"
+      b = fsExists path.resolve targetDir, "README.md"
+      faithful.collect [a,b]
     it "finds all placeholders",  ->
-      result.then -> assert.deepEqual expectedVarNames.sort(), foundVarNames.sort()
+      assert.deepEqual expectedVarNames.sort(), foundVarNames.sort()
     it "results in right output", ->
       diffDirs(expectedDir, targetDir).then null, (err) ->
-        # console.log err
         console.log err.stdout
         throw err
     after ->
       fs.renameSync expectedDir + "/package.json", expectedDir + "/package.jumpstart.json"
-      rimraf targetDir
+      rimraf.sync targetDir
