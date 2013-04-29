@@ -62,6 +62,6 @@ describe "createProject", ->
         # console.log err
         console.log err.stdout
         throw err
-  after ->
-    fs.renameSync expectedDir + "/package.json", expectedDir + "/package.jumpstart.json"
-    rimraf targetDir
+    after ->
+      fs.renameSync expectedDir + "/package.json", expectedDir + "/package.jumpstart.json"
+      rimraf targetDir
