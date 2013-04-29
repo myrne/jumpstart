@@ -37,7 +37,7 @@
     "underscore": "~1.4.4",
     "mkdirp": "~0.3.5",
     "prompt": "~0.2.9",
-    "explorer": "0.0.2"
+    "explorer": "0.0.3"
   },
   "devDependencies": {
     "coffee-script": "1.6.x",
