@@ -7,13 +7,13 @@ _ = require "underscore"
 createProject = require "./createProject"
 printValues = require "./printValues"
 
-module.exports = runWith = ({cwd, env, containingDir, inputs, resolveValues, log}) ->
+module.exports = runWith = ({cwd, env, containingDir, inputs: [dirName, templateName], resolveValues, log}) ->
   configDirs = ("#{dir}/.jumpstart.json" for dir in [cwd,env.HOME])
-  targetDir = "#{cwd}/#{inputs[0]}" 
+  targetDir = "#{cwd}/#{dirName}" 
   autoValues = 
     "target-dir": targetDir
     "current-year": new Date().getFullYear()
-  Memoblock.do([
+  Memoblock.do [
     -> @cwdExists = fsExists cwd
     -> @cdExists = fsExists containingDir
     -> throw new Error "Supplied cwd #{cwd} does not exist." unless @cwdExists
@@ -23,10 +23,10 @@ module.exports = runWith = ({cwd, env, containingDir, inputs, resolveValues, log
     -> log "Using config file #{@configFilePath}." if @configFilePath
     -> @config = if @configFilePath then require @configFilePath else globals:{}
     -> 
-      if inputs.length is 1 and @config.defaultTemplate?
+      if templateName 
+        @templateName = templateName
+      else if @config.defaultTemplate?
         @templateName = @config.defaultTemplate
-      else if inputs.length is 2
-        @templateName = inputs[1]
       else
         throw new Error "Usage: jumpstart [project-name] [template-name]"
     -> @getValues = (varNames) =>
@@ -42,7 +42,7 @@ module.exports = runWith = ({cwd, env, containingDir, inputs, resolveValues, log
     -> log "Using template #{@templateDir}."
     -> @creatingProject = createProject targetDir, @templateDir, @getValues
     -> log "Created #{@creatingProject.targetPaths.length} files in #{targetDir}."
-  ])
+  ]
 
 # setDefault = (name, value) ->
 #   getConfig(config).then (config) ->
