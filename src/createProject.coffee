@@ -39,8 +39,8 @@ module.exports = createProject = (targetDir, templateDir, getValues) ->
     -> applyEach @renamePairs, rename
   ]
 
-replace = (string, replacement) ->
-  string.replace replacement[0], replacement[1]
+replace = (string, [search,replace]) ->
+  string.replace search, replace
 
 findPlaceholderNames = (contents) ->
   return [] unless matches = contents.toString().match  /---([a-z]+(-[a-z]+)*)---/g
