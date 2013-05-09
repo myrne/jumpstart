@@ -8,7 +8,7 @@ module.exports =
   log: (msg) ->
   inputs: ["someproject","something"]
   resolveValues: (names) ->
-    makePromise (resolve) ->
+    makePromise (cb) ->
       obj = {}
       obj[name] = "random-value" for name in names
-      resolve obj  
+      cb null, obj  
