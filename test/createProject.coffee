@@ -1,4 +1,5 @@
 require("mocha-as-promised")()
+require("source-map-support").install()
 
 fs = require "fs"
 faithful = require "faithful"

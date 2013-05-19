@@ -44,7 +44,8 @@
     "mocha": "~1.9.0",
     "rimraf": "~2.1.4",
     "mocha-as-promised": "~1.3.0",
-    "faithful-exec": "0.0.1"
+    "faithful-exec": "0.0.1",
+    "source-map-support": "~0.1.5"
   },
   "optionalDependencies": {},
   "engines": {
