@@ -1,7 +1,7 @@
 fs = require "fs"
 fsExists = require "fs-exists"
 {getFiles} = require "explorer"
-Memoblock = require "memoblock"
+stepthrough = require "stepthrough"
 faithful = require "faithful"
 mkdirp = require "mkdirp"
 _ = require "underscore"
@@ -19,7 +19,7 @@ getFiles = adapt getFiles
 mkdirp = adapt mkdirp
 
 module.exports = createProject = (targetDir, templateDir, getValues) ->
-  Memoblock.do [
+  stepthrough [
     -> @targetExists = fsExists targetDir
     -> throw new Error "Target directory #{targetDir} already exist." if @targetExists
     -> @paths = getFiles templateDir

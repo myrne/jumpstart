@@ -1,4 +1,4 @@
-Memoblock = require "memoblock"
+stepthrough = require "stepthrough"
 {detectSeries,adapt} = require "faithful"
 fsExists = require "fs-exists"
 fsExists = adapt fsExists
@@ -13,7 +13,7 @@ module.exports = runWith = ({cwd, env, containingDir, inputs: [dirName, template
   autoValues = 
     "target-dir": targetDir
     "current-year": new Date().getFullYear()
-  Memoblock.do [
+  stepthrough [
     -> @cwdExists = fsExists cwd
     -> @cdExists = fsExists containingDir
     -> throw new Error "Supplied cwd #{cwd} does not exist." unless @cwdExists
