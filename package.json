@@ -31,7 +31,7 @@
   "dependencies": {
     "optimist": "0.6.x",
     "easy-table": "1.0.x",
-    "faithful": "0.7.x",
+    "faithful": "0.8.x",
     "stepthrough": "~0.1.x",
     "fs-exists": "0.1.x",
     "underscore": "~1.8.3",
