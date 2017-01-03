@@ -8,17 +8,10 @@ goodOptions = require "../fixtures/goodOptions"
 
 describe "runWith", ->
   it "fails when not providing options object.", ->
-    try
-      runWith()
-    catch error
-      return
-    throw new Error "Function should have failed."
+    runWith().then (-> throw new Error "Function should have failed."), (err) -> # swallow error
+    
   it "fails when providing empty object.", ->
-    try
-      runWith {}
-    catch error
-      return
-    throw new Error "Function should have failed."
+    runWith({}).then (-> throw new Error "Function should have failed."), (err) -> # swallow error
   it "works when providing good options", ->
     runWith(goodOptions)
   after (next) ->

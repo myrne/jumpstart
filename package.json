@@ -29,15 +29,15 @@
   },
   "main": "lib/runWith.js",
   "dependencies": {
-    "optimist": "0.6.x",
+    "bluebird": "^3.4.7",
     "easy-table": "1.0.x",
+    "explorer": "0.0.5",
     "faithful": "0.8.x",
-    "stepthrough": "~0.1.x",
     "fs-exists": "0.1.x",
-    "underscore": "~1.8.3",
     "mkdirp": "~0.5.1",
+    "optimist": "0.6.x",
     "prompt": "~1.0.0",
-    "explorer": "0.0.5"
+    "underscore": "~1.8.3"
   },
   "devDependencies": {
     "coffee-script": "^1.12.2",
