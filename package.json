@@ -40,12 +40,11 @@
     "explorer": "0.0.5"
   },
   "devDependencies": {
-    "coffee-script": "1.6.x",
-    "mocha": "~1.x.0",
+    "coffee-script": "^1.12.2",
+    "mocha": "^3.2.0",
     "rimraf": "~2.1.4",
-    "mocha-as-promised": "~1.3.0",
     "faithful-exec": "0.1.x",
-    "source-map-support": "~0.1.5"
+    "source-map-support": "^0.4.8"
   },
   "optionalDependencies": {},
   "engines": {
