@@ -1,6 +1,6 @@
 # jumpstart-black-coffee 
 
-[Jumpstart](https://github.com/meryn/jumpstart) template for an open source npm module written in CoffeeScript, but published as Javascript (including source maps). It also includes handy default settings for Textmate 2.
+[Jumpstart](https://github.com/braveg1rl/jumpstart) template for an open source npm module written in CoffeeScript, but published as Javascript (including source maps). It also includes handy default settings for Textmate 2.
 
 This template assumes:
 
@@ -71,9 +71,9 @@ These commands require the dev-dependencies to be installed. You can do so with 
 
 When you do `npm publish`, the CoffeeScript files will be compiled and all tests will be run, ensuring that the JavaScript code you're publishing is both fresh and working (in so far they're covered by tests).
 
-See also the [Jumpstart documentation](https://github.com/meryn/jumpstart).
+See also the [Jumpstart documentation](https://github.com/braveg1rl/jumpstart).
 
 ## License
 
 jumpstart-black-coffee is released under the [MIT License](http://opensource.org/licenses/MIT).  
-Copyright (c) 2013 Meryn Stol
+Copyright (c) 2017 Braveg1rl

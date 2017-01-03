@@ -1,7 +1,7 @@
 {
   "name": "jumpstart",
   "description": "Creates projects from templates with placeholders.",
-  "author": "Meryn Stol <merynstol@gmail.com>",
+  "author": "Braveg1rl <braveg1rl@outlook.com>",
   "license": "MIT",
   "keywords": [
     "templates",
@@ -18,11 +18,11 @@
   ],
   "preferGlobal": true,
   "version": "0.1.11",
-  "homepage": "https://github.com/meryn/jumpstart",
-  "bugs": "https://github.com/meryn/jumpstart/issues",
+  "homepage": "https://github.com/braveg1rl/jumpstart",
+  "bugs": "https://github.com/braveg1rl/jumpstart/issues",
   "repository": {
     "type": "git",
-    "url": "git://github.com/meryn/jumpstart.git"
+    "url": "git://github.com/braveg1rl/jumpstart.git"
   },
   "directories": {
     "lib": "./lib"

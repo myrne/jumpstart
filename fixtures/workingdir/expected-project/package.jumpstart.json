@@ -3,13 +3,13 @@
   "description": "The module that was expected.",
   "keywords": [],
   "version": "0.0.0",
-  "author": "Meryn Stol <merynstol@gmail.com>",
+  "author": "Braveg1rl <braveg1rl@outlook.com>",
   "license": "MIT",
-  "homepage": "https://github.com/meryn/expected-module",
-  "bugs": "https://github.com/meryn/expected-module/issues",
+  "homepage": "https://github.com/braveg1rl/expected-module",
+  "bugs": "https://github.com/braveg1rl/expected-module/issues",
   "repository": {
     "type": "git",
-    "url": "git://github.com/meryn/expected-module.git"
+    "url": "git://github.com/braveg1rl/expected-module.git"
   },
   "private": false,
   "dependencies": {},

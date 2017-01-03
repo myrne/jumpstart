@@ -25,11 +25,11 @@ diffDirs = (dir1, dir2) ->
 foundVarNames = []
 getValues = (varNames) ->
   foundVarNames = varNames
-  values = {} 
+  values = {}
   values[name] = value for name,value of config.globals
   values['module-name'] = 'expected-module'
   values['module-description'] = 'The module that was expected.'
-  values['current-year'] = "2013"
+  values['current-year'] = "2017"
   faithful.return values
 
 expectedVarNames =[ 'github-username', 'github-repos-path','module-name', 'module-description', 'module-is-private', 'github-ownername', 'commit-message', 'current-year', 'author-name', 'author-email', 'node-version', 'npm-version' ]
@@ -39,7 +39,7 @@ describe "createProject", ->
   describe "when target directory already exists", ->
     it "fails", ->
       createProject(existingDir, templateDir, getValues)
-        .then (->throw new Error "createProject should have failed."), (error) -> 
+        .then (->throw new Error "createProject should have failed."), (error) ->
           assert.equal error.toString(), "Error: Target directory #{existingDir} already exist."
   describe "when template directory does not exist", ->
     it "fails", ->

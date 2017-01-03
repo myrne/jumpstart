@@ -1,11 +1,11 @@
-# Jumpstart: Juice to get going [![Build Status](https://travis-ci.org/meryn/jumpstart.png?branch=master)](https://travis-ci.org/meryn/jumpstart) [![Dependency Status](https://david-dm.org/meryn/jumpstart.png)](https://david-dm.org/meryn/jumpstart)
+# Jumpstart: Juice to get going [![Build Status](https://travis-ci.org/braveg1rl/jumpstart.png?branch=master)](https://travis-ci.org/braveg1rl/jumpstart) [![Dependency Status](https://david-dm.org/braveg1rl/jumpstart.png)](https://david-dm.org/braveg1rl/jumpstart)
 
 Jumpstart creates new projects from templates with placeholders.
 
 ## Installation
 
 You probably want to install jumpstart globally, so you can run it from anywhere.
-To get a sense of what jumpstart can do, you should install a template module as well. Currently, [Jumpstart Black Coffee](https://github.com/meryn/jumpstart-black-coffee) is the only one publicly available, so that makes it easy to choose.
+To get a sense of what jumpstart can do, you should install a template module as well. Currently, [Jumpstart Black Coffee](https://github.com/braveg1rl/jumpstart-black-coffee) is the only one publicly available, so that makes it easy to choose.
 
 ```
 npm install jumpstart -g
@@ -27,15 +27,15 @@ Jumpstart will work without a configuration file, but it will be much less conve
 
 ###  Example of a .jumpstart.json file
 
-Below is the `.jumpstart.json` file that I currently use for [my open source projects](https://github.com/meryn/?tab=repositories). It defines values for most of the placeholders inside my [Jumpstart Black Coffee](https://github.com/meryn/jumpstart-black-coffee) template.
+Below is the `.jumpstart.json` file that I currently use for [my open source projects](https://github.com/braveg1rl/?tab=repositories). It defines values for most of the placeholders inside my [Jumpstart Black Coffee](https://github.com/braveg1rl/jumpstart-black-coffee) template.
 
 ```javascript
 {
   "globals": {
-    "author-name": "Meryn Stol",
-    "author-email": "merynstol@gmail.com",
-    "github-username": "meryn",
-    "github-ownername": "meryn",
+    "author-name": "Braveg1rl",
+    "author-email": "braveg1rl@outlook.com",
+    "github-username": "braveg1rl",
+    "github-ownername": "braveg1rl",
     "github-repos-path": "/user/repos",
     "module-is-private": "false",
     "node-version": "0.10.x",
@@ -47,7 +47,7 @@ Below is the `.jumpstart.json` file that I currently use for [my open source pro
 
 #### A note about `module-is-private`
 
-This property is set to the string `"false"`. This is because Jumpstart does not know about booleans. Because of how the [Jumpstart Black Coffee](https://github.com/meryn/jumpstart-black-coffee) template is structured, setting this property to anything else than `"true"` or `"false"` would reduce in invalid JSON in the generated project.
+This property is set to the string `"false"`. This is because Jumpstart does not know about booleans. Because of how the [Jumpstart Black Coffee](https://github.com/braveg1rl/jumpstart-black-coffee) template is structured, setting this property to anything else than `"true"` or `"false"` would reduce in invalid JSON in the generated project.
 
 ## Usage
 
@@ -119,4 +119,4 @@ The structure of a template module allows it to be published verbatim with npm. 
 
 ## License
 Jumpstart is released under the [MIT License](http://opensource.org/licenses/MIT).  
-Copyright (c) 2013 Meryn Stol
+Copyright (c) 2017 Braveg1rl

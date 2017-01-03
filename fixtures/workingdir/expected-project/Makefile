@@ -11,13 +11,13 @@ test:
 
 jumpstart:
 	npm install
-	curl -u 'meryn' https://api.github.com/user/repos -d '{"name":"expected-module", "description":"The module that was expected.","private":false}'
+	curl -u 'braveg1rl' https://api.github.com/user/repos -d '{"name":"expected-module", "description":"The module that was expected.","private":false}'
 	mkdir -p src
 	touch src/expected-module.coffee
 	mkdir -p test
 	touch test/expected-module.coffee
 	git init
-	git remote add origin git@github.com:meryn/expected-module
+	git remote add origin git@github.com:braveg1rl/expected-module
 	git add .
 	git commit -m "jumpstart commit."
 	git push -u origin master

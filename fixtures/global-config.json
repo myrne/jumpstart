@@ -1,10 +1,10 @@
 {
   "defaultTemplate": "black-coffee",
   "globals": {
-    "author-name": "Meryn Stol",
-    "author-email": "merynstol@gmail.com",
-    "github-username": "meryn",
-    "github-ownername": "meryn",
+    "author-name": "Braveg1rl",
+    "author-email": "braveg1rl@outlook.com",
+    "github-username": "braveg1rl",
+    "github-ownername": "braveg1rl",
     "github-repos-path": "/user/repos",
     "module-is-private": "false",
     "node-version": "0.10.x",
