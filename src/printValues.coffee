@@ -3,9 +3,9 @@ easytable = require "easy-table"
 
 module.exports = (values) ->
   """
-  
-  
+
+
   VALUES TO BE USED
   =================
-  #{easytable.printObj object sortBy pairs(values), 0}
+  #{easytable.print object sortBy pairs(values), 0}
   """
