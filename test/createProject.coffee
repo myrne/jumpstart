@@ -44,9 +44,9 @@ describe "createProject", ->
   describe "when template directory does not exist", ->
     it "fails", ->
       createProject(targetDir, templateDir + "abc", getValues)
-        .then (->throw new Error "createProject should have failed."), (error) -> 
-          assert.equal error.toString(), "Error: ENOENT, readdir '#{templateDir}abc'"
-    
+        .then (->throw new Error "createProject should have failed."), (error) ->
+          assert.equal error.toString(), "Error: ENOENT: no such file or directory, scandir '#{templateDir}abc'"
+
   describe "when all is good", ->
     before ->
       if fs.existsSync expectedDir + "/package.jumpstart.json"
