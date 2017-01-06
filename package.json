@@ -41,9 +41,10 @@
   },
   "devDependencies": {
     "coffee-script": "^1.12.2",
-    "mocha": "^3.2.0",
-    "rimraf": "~2.5.4",
     "faithful-exec": "0.1.x",
+    "mocha": "^3.2.0",
+    "pre-commit": "^1.2.2",
+    "rimraf": "~2.5.4",
     "source-map-support": "^0.4.8"
   },
   "optionalDependencies": {},
@@ -55,7 +56,9 @@
   },
   "scripts": {
     "prepublish": "npm test",
-    "pretest": "make build",
-    "test": "make test"
+    "pretest": "npm run build",
+    "test": "node_modules/.bin/mocha",
+    "watch": "node_modules/.bin/coffee --watch --compile --output lib/ src/",
+    "build": "mkdir -p lib && rm -rf lib/* && node_modules/.bin/coffee --compile -m --output lib/ src/"
   }
 }
