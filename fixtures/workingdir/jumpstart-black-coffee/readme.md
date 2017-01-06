@@ -1,4 +1,4 @@
-# jumpstart-black-coffee 
+# jumpstart-black-coffee
 
 [Jumpstart](https://github.com/braveg1rl/jumpstart) template for an open source npm module written in CoffeeScript, but published as Javascript (including source maps). It also includes handy default settings for Textmate 2.
 
@@ -75,5 +75,5 @@ See also the [Jumpstart documentation](https://github.com/braveg1rl/jumpstart).
 
 ## License
 
-jumpstart-black-coffee is released under the [MIT License](http://opensource.org/licenses/MIT).  
+jumpstart-black-coffee is released under the [MIT License](http://opensource.org/licenses/MIT).
 Copyright (c) 2017 Braveg1rl

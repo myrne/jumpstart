@@ -118,5 +118,5 @@ The easiest way to use your own template is to place it in your Work directory w
 The structure of a template module allows it to be published verbatim with npm. The module name (i.e. in package.json) must start with `jumpstart-`.
 
 ## License
-Jumpstart is released under the [MIT License](http://opensource.org/licenses/MIT).  
+Jumpstart is released under the [MIT License](http://opensource.org/licenses/MIT).
 Copyright (c) 2017 Braveg1rl

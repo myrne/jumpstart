@@ -6,7 +6,7 @@ prompt.message = ""
 prompt.delimiter = ": "
 promptGet = faithful.adapt prompt.get
 
-module.exports = 
+module.exports =
   cwd: process.cwd()
   env: process.env
   inputs: optimist.argv._

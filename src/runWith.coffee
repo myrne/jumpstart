@@ -9,8 +9,8 @@ printValues = require "./printValues"
 
 module.exports = runWith = Bluebird.coroutine ({cwd, env, containingDir, inputs: [dirName, templateName], resolveValues, log}) ->
   configDirs = ("#{dir}/.jumpstart.json" for dir in [cwd,env.HOME])
-  targetDir = "#{cwd}/#{dirName}" 
-  autoValues = 
+  targetDir = "#{cwd}/#{dirName}"
+  autoValues =
     "target-dir": targetDir
     "current-year": new Date().getFullYear()
   cwdExists = yield fsExists cwd
@@ -21,8 +21,8 @@ module.exports = runWith = Bluebird.coroutine ({cwd, env, containingDir, inputs:
   log "No config file in #{configDirs.join ", or "}. Please read README.md." unless configFilePath
   log "Using config file #{configFilePath}." if configFilePath
   config = if configFilePath then require configFilePath else globals:{}
-  
-  if templateName 
+
+  if templateName
     templateName = templateName
   else if config.defaultTemplate?
     templateName = config.defaultTemplate
@@ -32,7 +32,7 @@ module.exports = runWith = Bluebird.coroutine ({cwd, env, containingDir, inputs:
     values = _.extend _.object(varNames, []), config.globals, autoValues
     missingVarNames = (name for name, value of values when not value?)
     resolveValues(missingVarNames)
-      .then (extraValues) -> 
+      .then (extraValues) ->
         log printValues _.extend values, extraValues
         values
   templateDirs = ("#{path}/jumpstart-#{templateName}/template" for path in [cwd,containingDir])
@@ -46,7 +46,7 @@ module.exports = runWith = Bluebird.coroutine ({cwd, env, containingDir, inputs:
 #   getConfig(config).then (config) ->
 #     config.defaults[name] = value
 #     writeConfig config, next
-# 
+#
 # writeConfig = (config) ->
 #   @findConfigFilePath.then (path) ->
 #     @log "Writing config to #{path}."
