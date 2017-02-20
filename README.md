@@ -1,5 +1,7 @@
 # Jumpstart: Juice to get going [![Build Status](https://travis-ci.org/braveg1rl/jumpstart.png?branch=master)](https://travis-ci.org/braveg1rl/jumpstart) [![Dependency Status](https://david-dm.org/braveg1rl/jumpstart.png)](https://david-dm.org/braveg1rl/jumpstart)
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/braveg1rl/jumpstart.svg)](https://greenkeeper.io/)
+
 Jumpstart creates new projects from templates with placeholders.
 
 ## Installation
